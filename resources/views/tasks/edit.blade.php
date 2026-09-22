@@ -7,7 +7,7 @@
 
     <h1>Edit Task</h1>
 
-    <form action="{{ route('tasks.update', $task->id) }}" method="POST">
+    <form action="/tasks/{{ $task->id }}" method="POST">
 
         @csrf
         @method('PUT')
@@ -27,6 +27,7 @@
 
         <label>Status:</label><br>
         <select name="status">
+
             <option value="Pending"
                 {{ $task->status == 'Pending' ? 'selected' : '' }}>
                 Pending
@@ -36,6 +37,7 @@
                 {{ $task->status == 'Completed' ? 'selected' : '' }}>
                 Completed
             </option>
+
         </select>
 
         <br><br>
@@ -53,7 +55,7 @@
 
     <br>
 
-    <a href="{{ route('tasks.index') }}">Back to Tasks</a>
+    <a href="/">Back to Tasks</a>
 
 </body>
 </html>

@@ -7,8 +7,7 @@
 
     <h1>Add New Task</h1>
 
-    <form action="{{ route('tasks.store') }}" method="POST">
-
+    <form action="/tasks" method="POST">
         @csrf
 
         <label>Task Name:</label><br>
@@ -35,12 +34,11 @@
         <br><br>
 
         <button type="submit">Add Task</button>
-
     </form>
 
     <br>
 
-    <a href="{{ route('tasks.index') }}">Back to Tasks</a>
+    <a href="/">Back to Tasks</a>
 
 </body>
 </html>

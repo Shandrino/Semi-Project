@@ -7,11 +7,12 @@
 
     <h1>Personal Task Manager</h1>
 
-    <a href="{{ route('tasks.create') }}">+ Add Task</a>
+    <a href="/tasks/create">+ Add Task</a>
 
     <br><br>
 
     <table border="1" cellpadding="10">
+
         <tr>
             <th>Task</th>
             <th>Description</th>
@@ -21,16 +22,22 @@
         </tr>
 
         @foreach ($tasks as $task)
+
         <tr>
+
             <td>{{ $task->task_name }}</td>
+
             <td>{{ $task->description }}</td>
+
             <td>{{ $task->status }}</td>
+
             <td>{{ $task->due_date }}</td>
 
             <td>
-                <a href="{{ route('tasks.edit', $task->id) }}">Edit</a>
 
-                <form action="{{ route('tasks.destroy', $task->id) }}"
+                <a href="/tasks/{{ $task->id }}/edit">Edit</a>
+
+                <form action="/tasks/{{ $task->id }}"
                       method="POST"
                       style="display:inline;">
 
@@ -38,9 +45,13 @@
                     @method('DELETE')
 
                     <button type="submit">Delete</button>
+
                 </form>
+
             </td>
+
         </tr>
+
         @endforeach
 
     </table>
