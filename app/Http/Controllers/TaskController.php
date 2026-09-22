@@ -38,19 +38,20 @@ class TaskController extends Controller
         return view('tasks.edit', compact('task'));
     }
 
-    public function update(Request $request, Task $task)
-    {
-        $request->validate([
-            'task_name' => 'required',
-            'description' => 'nullable',
-            'status' => 'required',
-            'due_date' => 'nullable|date',
-        ]);
+   public function update(Request $request, Task $task)
+{
+    $request->validate([
+        'task_name' => 'required',
+        'description' => 'nullable',
+        'status' => 'required',
+        'due_date' => 'nullable|date',
+    ]);
 
-        $task->update($request->all());
+    $task->update($request->all());
 
-        return redirect('/');
-    }
+    return response('', 302)
+        ->header('Location', '/');
+}
 
     public function destroy(Task $task)
     {
@@ -59,14 +60,15 @@ class TaskController extends Controller
         return redirect('/');
     }
 
-    public function updateStatus(Task $task)
-    {
-        $task->status = $task->status === 'Pending'
-            ? 'Completed'
-            : 'Pending';
+  public function updateStatus(Task $task)
+{
+    $task->status = $task->status === 'Pending'
+        ? 'Completed'
+        : 'Pending';
 
-        $task->save();
+    $task->save();
 
-        return redirect('/');
-    }
+    return response('', 302)
+        ->header('Location', '/');
+}
 }

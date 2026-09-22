@@ -15,4 +15,5 @@ Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.upda
 
 Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
-Route::patch('/tasks/{task}/status', [TaskController::class, 'updateStatus'])->name('tasks.status');
+Route::patch('/tasks/{task}/status', [TaskController::class, 'updateStatus'])
+    ->name('tasks.status');
