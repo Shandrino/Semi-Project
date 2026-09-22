@@ -20,18 +20,19 @@ class TaskController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'task_name' => 'required',
-            'description' => 'nullable',
-            'status' => 'required',
-            'due_date' => 'nullable|date',
-        ]);
+{
+    $request->validate([
+        'task_name' => 'required',
+        'description' => 'nullable',
+        'status' => 'required',
+        'due_date' => 'nullable|date',
+    ]);
 
-        Task::create($request->all());
+    Task::create($request->all());
 
-        return redirect('/');
-    }
+    return response('', 302)
+        ->header('Location', '/');
+}
 
     public function edit(Task $task)
     {
@@ -54,11 +55,12 @@ class TaskController extends Controller
 }
 
     public function destroy(Task $task)
-    {
-        $task->delete();
+{
+    $task->delete();
 
-        return redirect('/');
-    }
+    return response('', 302)
+        ->header('Location', '/');
+}
 
   public function updateStatus(Task $task)
 {
