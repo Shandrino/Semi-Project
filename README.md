@@ -18,4 +18,7 @@ Database Used: SQLite
 - Delete Task
 - Update Status
 
+
+![image alt](https://github.com/Shandrino/Semi-Project/blob/7150746b00aadb74eade18b710048cb2259b0ab0/Screenshot_2.png)
 ![image alt](https://github.com/Shandrino/Semi-Project/blob/7150746b00aadb74eade18b710048cb2259b0ab0/Screenshot_1.png)
+![image alt](https://github.com/Shandrino/Semi-Project/blob/7150746b00aadb74eade18b710048cb2259b0ab0/Screenshot_3.png)
